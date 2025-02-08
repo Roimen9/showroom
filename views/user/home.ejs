@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find the best deals on new and used cars at our car dealership in Nairobi. Explore Toyota models, second-hand auto sales, and financing options to buy cars on installments.">
+    <meta name="keywords" content="car dealership Nairobi, used car dealership, buy car pay monthly, Toyota cars for sale, second hand auto sales, buy car installment Nairobi, cheap cars for sale near me">
+    <title>Buy New & Used Cars in Nairobi - Best Deals at Our Toyota Car Dealership</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     
+    <style>
+        .text {
+            animation: songa 2s ease-in-out;
+        }
+        .car {
+            animation: move 2s ease-in-out;
+        }
+        @keyframes move {
+            0% {
+                transform: translateX(800px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        @keyframes songa {
+            0% {
+                transform: translateX(-800px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-body-tertiary">
+    <%- include('../partials/header') %>
+    <div class="container mt-5 pt-lg-5 pt-2">
+        <div class="row mt-5 pt-5 align-items-center">
+            <div class="col-lg-6 col-12 text">
+                <h1 class="col text-lg-start text-center">Get Your Dream Car Today</h1>
+                <div class="col text-lg-start text-center lead fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nobis recusandae ab facere laborum culpa mollitia. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto providen</div>
+            </div>
+            <div class="col-lg-6 col-12 car">
+                <img src="https://s7ap1.scene7.com/is/image/tatamotors/sunlit-yellow-left?$VH-708-500-D$&fit=crop&fmt=webp-alpha" alt="" class="w-100">
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5 pt-5">
+        <div class="row mt-5 pt-5 align-items-center">
+            <h2 class="fs-3 text-center mb-5">New Arrivals</h2>
+            <div class="offset-md-1 col-md-10 col-12 mb-3">
+                <!-- <h4 class="fs-3 text-center">Hot New Arrivals</h4> -->
+                <div class="lead text-center fs-4 mb-5">At  showroom we are dedicated to having an array of cars  including those that are new in the market to ensure that all our clients get exactly what they want</div>
+            </div>
+            <% rows.forEach(row => { %>
+              <a href="/user/vehicle/<%= row.Id %>" class="col-lg-3 col-md-6 col-12 mb-3" style="text-decoration: none;">
+                <div class="card w-100 rounded-4">
+                    <img src="<%= row.image1 %>" class="card-img-top bg-success-subtle" alt="<%= row.exterior %> <%= row.YOM %> <%= row.make %> <%= row.model %>">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= row.make %> <%= row.model %></h5>
+                      <h4 class="card-subtitle">KSH <%= row.price %></h4>                     
+                    </div>
+                </div>
+              </a>
+            <% }) %>
+          </div>
+          <div class="col text-center my-3">
+              <a href="/user/vehicles" class="btn btn-dark text-white fs-5 rounded-pill text-center">View All</a>
+          </div>
+    </div>
+    <div class="container mt-5 pt-5">
+        <h3 class="fs-4 text-center">Why Choose Us?</h3>
+        <div class="row my-5 align-items-center justify-content-center gap-5">
+            <div class="card col-lg-3 col-md-5 col-10 p-2 rounded-4 shadow border border-dark-subtle border-1">
+                <h3 class="card-title text-center">Quality Services</h3>
+                <div class="fs-5 lead p-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum exercitationem vitae porro dolorem quod omnis officiis, explicabo 
+                </div>
+            </div>
+            <div class="card col-lg-3 col-md-5 col-10 p-2 rounded-4 shadow border border-dark-subtle border-1">
+                <h3 class="card-title text-center">Quality Services</h3>
+                <div class="fs-5 lead p-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum exercitationem vitae porro dolorem quod omnis officiis, explicabo 
+                </div>
+            </div> 
+            <div class="card col-lg-3 col-md-5 col-10 p-2 rounded-4 shadow border border-dark-subtle border-1">
+                <h3 class="card-title text-center">Quality Services</h3>
+                <div class="fs-5 lead p-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum exercitationem vitae porro dolorem quod omnis officiis, explicabo 
+                </div>
+            </div>        
+        </div>
+    </div>
+    <div class="container my-5 pt-5">
+        <h3 class="fs-4 text-center">FAQ's</h3>
+        <div class="lead fs-4 text-center my-3">Here are some of our frequently asked questions</div>
+        <div class="accordion mb-5 pb-5" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button h2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  How do I make a purchase
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed h2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Do you guys have imported cars or are they all second hand
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed h2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Where are you guys located
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="col text-center my-3">
+              <a href="/user/FAQs" class="btn btn-dark text-white fs-5 rounded-pill text-center">View All</a>
+          </div>
+          </div>
+    </div>
+    <%- include('../partials/footer') %>
+</body>
+</html>
