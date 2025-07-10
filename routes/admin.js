@@ -45,9 +45,7 @@ const extractImageUrls = (req, res, next) => {
 };
 
 // Routes
-router.get('/home', Authandler.verify, (req, res) => {
-  res.render('admin/home', { user: req.user });
-});
+router.get('/home', Authandler.verify, APIhandler.newArrivalsAdmin);
 router.get('/vehicles', Authandler.verify, APIhandler.displayAdminCars);
 router.get('/vehicle/:id', Authandler.verify, APIhandler.displayAdminCar);
 router.get('/queries', Authandler.verify, APIhandler.displayEnquieries);
@@ -74,8 +72,7 @@ router.post('/edit/:id', upload.fields([
     { name: 'image3', maxCount: 1 },
     { name: 'image4', maxCount: 1 },
     { name: 'image5', maxCount: 1 },
-  ]), extractImageUrls, APIhandler.editCar
-);
+  ]), extractImageUrls, APIhandler.editCar);
 
 router.get('/display/edit/:id', Authandler.verify, APIhandler.displayAdminCarForEdit);
 router.delete('/delete/:id', Authandler.verify, APIhandler.deleteCar);

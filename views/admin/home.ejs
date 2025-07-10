@@ -48,85 +48,23 @@
         <div class="row mt-5 pt-5 align-items-center">
             <h2 class="fs-3 text-center mb-5">New Arrivals</h2>
             <div class="offset-md-1 col-md-10 col-12 mb-3">
-                <!-- <h4 class="fs-3 text-center">Hot New Arrivals</h4> -->
-                <div class="lead text-center fs-4 mb-5">At  showroom we are dedicated to having an array of cars  including those that are new in the market to ensure that all our clients get exactly what they want</div>
+               <div class="lead text-center fs-4 mb-5">At  showroom we are dedicated to having an array of cars  including those that are new in the market to ensure that all our clients get exactly what they want</div>
             </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-3">
+            <% rows.forEach(row => { %>
+              <a href="/admin/vehicle/<%= row.Id %>" class="col-lg-3 col-md-6 col-12 mb-3" style="text-decoration: none;">
                 <div class="card w-100 rounded-4">
-                    <img src="https://s7ap1.scene7.com/is/image/tatamotors/sunlit-yellow-left?$VH-708-500-D$&fit=crop&fmt=webp-alpha" class="card-img-top bg-success-subtle" alt="...">
+                    <img src=<%= row.image1 %>  class="card-img-top bg-success-subtle" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Harrier</h5>
-                      <h4 class="card-subtitle">KSH 1,200,00</h4>                     
+                      <h5 class="card-title"><%= row.model %> <%= row.make %></h5>
+                      <h4 class="card-subtitle"><%= row.price %></h4>                     
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-3">
-                <div class="card w-100 rounded-4">
-                    <img src="https://s7ap1.scene7.com/is/image/tatamotors/sunlit-yellow-left?$VH-708-500-D$&fit=crop&fmt=webp-alpha" class="card-img-top bg-warning-subtle" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Harrier</h5>
-                      <h4 class="card-subtitle">KSH 1,200,00</h4>                     
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-3">
-                <div class="card w-100 rounded-4">
-                    <img src="https://s7ap1.scene7.com/is/image/tatamotors/sunlit-yellow-left?$VH-708-500-D$&fit=crop&fmt=webp-alpha" class="card-img-top bg-primary-subtle" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Harrier</h5>
-                      <h4 class="card-subtitle">KSH 1,200,00</h4>                     
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-3">
-                <div class="card w-100 rounded-4">
-                    <img src="https://s7ap1.scene7.com/is/image/tatamotors/sunlit-yellow-left?$VH-708-500-D$&fit=crop&fmt=webp-alpha" class="card-img-top bg-secondary-subtle" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Harrier</h5>
-                      <h4 class="card-subtitle">KSH 1,200,00</h4>                     
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-3">
-                <div class="card w-100 rounded-4">
-                    <img src="https://s7ap1.scene7.com/is/image/tatamotors/sunlit-yellow-left?$VH-708-500-D$&fit=crop&fmt=webp-alpha" class="card-img-top bg-warning-subtle" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Harrier</h5>
-                      <h4 class="card-subtitle">KSH 1,200,00</h4>                     
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-3">
-                <div class="card w-100 rounded-4">
-                    <img src="https://s7ap1.scene7.com/is/image/tatamotors/sunlit-yellow-left?$VH-708-500-D$&fit=crop&fmt=webp-alpha" class="card-img-top bg-danger-subtle" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Harrier</h5>
-                      <h4 class="card-subtitle">KSH 1,200,00</h4>                     
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-3">
-                <div class="card w-100 rounded-4">
-                    <img src="https://s7ap1.scene7.com/is/image/tatamotors/sunlit-yellow-left?$VH-708-500-D$&fit=crop&fmt=webp-alpha" class="card-img-top bg-info-subtle" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Harrier</h5>
-                      <h4 class="card-subtitle">KSH 1,200,00</h4>                     
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-3">
-                <div class="card w-100 rounded-4">
-                    <img src="https://s7ap1.scene7.com/is/image/tatamotors/sunlit-yellow-left?$VH-708-500-D$&fit=crop&fmt=webp-alpha" class="card-img-top bg-success-subtle" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Harrier</h5>
-                      <h4 class="card-subtitle">KSH 1,200,00</h4>                     
-                    </div>
-                  </div>
-            </div>
-            <div class="col text-center my-3">
-                <a href="/admin/vehicles" class="btn btn-dark text-white fs-5 rounded-pill text-center">View All</a>
-            </div>
-        </div>
+              </a>
+            <% }) %>
+          </div>
+          <div class="col text-center my-3">
+          <a href="/admin/vehicles" class="btn btn-dark text-white fs-5 rounded-pill text-center">View All</a>
+          </div>
     </div>
     <div class="container mt-5 pt-5">
         <h3 class="fs-4 text-center">Why Choose Us?</h3>

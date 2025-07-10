@@ -20,7 +20,6 @@ dotenv.config()
 app.use('/user', userRouter)
 app.use('/admin', adminRouter)
 app.use('/auth', authRouter)
-app.use('/Images', express.static('Images'));
 
 app.listen(port, (error) => {
     if (error) return console.log('There was a problem running the server', error)

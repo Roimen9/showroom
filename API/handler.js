@@ -1,7 +1,7 @@
 const sqlite = require('sqlite3')
 const handler = {
-    newCar : async (req, res) => {
-        const car = await req.body
+    newCar : (req, res) => {
+        const car = req.body
         const images = req.images
         const db = new sqlite.Database('test.db', sqlite.OPEN_READWRITE, (error) => {
             if (error) return console.log('There was a problem connecting to the database', error)
@@ -16,7 +16,7 @@ const handler = {
         })
 
         db.close((error) => {
-            if (error) return console.log('THere was a problem closing the databse connection', error)
+            if (error) return console.log('There was a problem closing the databse connection', error)
                 console.log('The connection was closed successfully')
         })
     },
@@ -307,6 +307,31 @@ const handler = {
                 })
                 res.render('user/home', {rows : inStock})
                 // console.log(latest)
+        })
+
+        db.close((error) => {
+            if (error) return console.log('There was a problem closing the databse connection')
+                console.log('Connection closed successfully')
+        })
+    },
+    newArrivalsAdmin : (req, res) => {
+        const db = new sqlite.Database('test.db', sqlite.OPEN_READWRITE, (error) => {
+            if (error) return console.log('There was a problem connecting to the database', error)
+                console.log('Connected to the databse successfully')
+        })
+
+        const query = 'SELECT * FROM cars ORDER BY Id DESC'
+        db.all(query, (error, rows) => {
+            if (error) return console.log('Failed to retrieve the data from the database', error)
+                console.log('Data retrieved successfully', rows)
+                const latest = rows.slice(0,8)
+                const inStock = []
+                latest.forEach(car => {
+                    if (car.stock !== 'sold') {
+                        inStock.push(car)
+                    }
+                })
+                res.render('admin/home', {rows : inStock, user : req.user})
         })
 
         db.close((error) => {
